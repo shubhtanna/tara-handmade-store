@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thank you | Tara Handmade</title>
+<meta name="description" content="Order received.">
+<link rel="icon" href="images/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="thanks">
+<div class="topbar">Free shipping on orders over ₹1,999 &nbsp;·&nbsp; Every piece handmade in Jaipur</div>
+<header class="header">
+  <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  <nav class="nav nav-left">
+    <a href="shop.html">Shop all</a>
+    <a href="shop.html?c=earrings">Earrings</a>
+    <a href="shop.html?c=necklaces">Necklaces</a>
+    <a href="shop.html?c=bracelets">Bracelets</a>
+    <a href="shop.html?c=rings">Rings</a>
+  </nav>
+  <a href="index.html" class="brand">Tara<em>handmade</em></a>
+  <nav class="nav nav-right">
+    <a href="about.html">Our story</a>
+    <a href="care.html">Care &amp; shipping</a>
+    <a href="cart.html" class="cart-link">Bag <span class="cart-count">0</span></a>
+  </nav>
+</header>
+<main>
+
+<section class="section narrow center">
+  <p class="kicker">Thank you</p>
+  <h1>We've received your order request</h1>
+  <p id="order-line" class="lead"></p>
+  <p>We'll message you on WhatsApp within a few hours with a UPI link to pay. Your jewellery ships from Jaipur within 2 working days of payment.</p>
+  <a href="shop.html" class="btn">Keep browsing</a>
+</section>
+<script>
+  (function () {
+    var p = new URLSearchParams(location.search);
+    var o = null;
+    try { o = JSON.parse(localStorage.getItem('tara_last_order')); } catch (e) {}
+    var line = document.getElementById('order-line');
+    if (o && o.id === p.get('order')) line.textContent = 'Order ' + o.id + ' · ' + o.items + ' item(s) · ₹' + o.total.toLocaleString('en-IN');
+    else if (p.get('order')) line.textContent = 'Order ' + p.get('order');
+  })();
+</script>
+
+</main>
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <p class="brand light">Tara<em>handmade</em></p>
+      <p>Demi-fine jewellery made by hand in a small studio in Jaipur.</p>
+    </div>
+    <div>
+      <h4>Shop</h4>
+      <a href="shop.html?c=earrings">Earrings</a>
+      <a href="shop.html?c=necklaces">Necklaces</a>
+      <a href="shop.html?c=bracelets">Bracelets</a>
+      <a href="shop.html?c=rings">Rings</a>
+    </div>
+    <div>
+      <h4>Help</h4>
+      <a href="care.html">Shipping &amp; returns</a>
+      <a href="care.html#care">Jewellery care</a>
+      <a href="about.html">Our story</a>
+    </div>
+    <div>
+      <h4>Letters from the studio</h4>
+      <form class="newsletter" onsubmit="event.preventDefault(); this.innerHTML='<p>Thank you! See you in your inbox.</p>';">
+        <input type="email" placeholder="Your email" required>
+        <button>Join</button>
+      </form>
+    </div>
+  </div>
+  <p class="copy">© 2026 Tara Handmade, Jaipur · Demo store: no real orders, payments or deliveries.</p>
+</footer>
+<script src="js/products.js"></script>
+<script src="js/cart.js"></script>
+
+</body>
+</html>
