@@ -1,4 +1,18 @@
 (function () {
+  // Accept a shareable link like checkout.html?items=moti-pearl-strand:1,twist-huggie-hoops:2
+  // and fill the cart from it in the browser.
+  var itemsParam = new URLSearchParams(location.search).get('items');
+  if (itemsParam) {
+    itemsParam.split(',').forEach(function (part) {
+      var bits = part.split(':');
+      var p = findProduct(bits[0].trim());
+      if (!p) return;
+      var qty = Math.max(1, Math.min(5, parseInt(bits[1], 10) || 1));
+      addToCart(p.slug, '', qty);
+    });
+    history.replaceState(null, '', 'checkout.html');
+  }
+
   var t = cartTotals();
   if (!t.lines.length) { location.href = 'cart.html'; return; }
 

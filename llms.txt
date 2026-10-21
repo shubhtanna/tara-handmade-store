@@ -1,0 +1,29 @@
+# Tara Handmade
+
+Handmade demi-fine jewellery — earrings, necklaces, bracelets and rings — shaped, polished and finished by hand in a small studio in Jaipur, India. Prices are in Indian rupees (INR) and include GST.
+
+## Products
+
+- [Twist Huggie Hoops](/products/twist-huggie-hoops/): ₹1,490
+- [Neelam Statement Earrings](/products/neelam-statement-earrings/): ₹3,290
+- [Blue Heart Drops](/products/heart-drop-earrings/): ₹1,290
+- [Phool Flower Studs](/products/phool-flower-studs/): ₹1,890
+- [Chand Crescent Pendant](/products/chand-crescent-pendant/): ₹2,490
+- [Moti Pearl Strand](/products/moti-pearl-strand/): ₹5,890
+- [Single Pearl Drop Necklace](/products/single-pearl-drop/): ₹1,990
+- [Temple Lakshmi Haar](/products/temple-lakshmi-haar/): ₹6,490
+- [Layered Solitaire Necklace](/products/layered-solitaire-necklace/): ₹2,290
+- [Sikka Coin Layered Chains](/products/sikka-coin-chains/): ₹2,990
+- [Ginkgo Leaf Pendant](/products/ginkgo-leaf-pendant/): ₹2,190
+- [Filigree Rose Bracelet](/products/filigree-rose-bracelet/): ₹3,490
+- [Paperclip Chain Bracelet](/products/paperclip-chain-bracelet/): ₹1,690
+- [Chunky Link Bracelet](/products/chunky-link-bracelet/): ₹2,690
+- [Stacking Ring Set](/products/stacking-ring-set/): ₹2,390
+- [Gemstone Cocktail Ring](/products/gemstone-cocktail-rings/): ₹1,990
+
+## How to buy
+
+- Each product page above has an "Add to cart" link that opens `/buy/<product-slug>/`, a plain cart page showing the item, price and quantity.
+- From the cart page, follow the "Checkout" link to `/checkout/<product-slug>/`. That checkout link is shareable: it opens on any device with the item already in the order summary, no cookies needed, and shows the shipping form.
+- The regular checkout page `/checkout.html?items=<slug>:<qty>` also accepts items in the URL (for example `/checkout.html?items=moti-pearl-strand:1`).
+- Orders are confirmed personally on WhatsApp with a UPI payment link. Demo store: no real orders, payments or deliveries.
