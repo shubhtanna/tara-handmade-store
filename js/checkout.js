@@ -1,6 +1,21 @@
 (function () {
+  // Shareable links: /checkout/<slug>/ pages carry their item in the HTML
+  // (data-items on the summary), and checkout.html accepts ?items=<slug>:<qty>,…
+  var params = new URLSearchParams(location.search);
+  var itemsParam = params.get('items');
+  var summaryEl = document.getElementById('summary');
+  var preset = summaryEl.dataset.items;
+  if (itemsParam) {
+    saveCart(itemsParam.split(',').map(function (pair) {
+      var bits = pair.split(':');
+      return { key: bits[0] + '|', slug: bits[0], variant: '', qty: Math.min(5, Math.max(1, Number(bits[1]) || 1)) };
+    }).filter(function (i) { return findProduct(i.slug); }));
+  } else if (preset && !getCart().length) {
+    saveCart([{ key: preset.split(':')[0] + '|', slug: preset.split(':')[0], variant: '', qty: 1 }]);
+  }
+
   var t = cartTotals();
-  if (!t.lines.length) { location.href = 'cart.html'; return; }
+  if (!t.lines.length) { location.href = '/cart.html'; return; }
 
   document.getElementById('summary').innerHTML =
     '<h3>Your order</h3>' +
@@ -29,6 +44,6 @@
     var id = 'TH' + Date.now().toString().slice(-6);
     localStorage.setItem('tara_last_order', JSON.stringify({ id: id, items: t.count, total: t.total, gift: !!d.gift }));
     saveCart([]);
-    location.href = 'thank-you.html?order=' + id;
+    location.href = '/thank-you.html?order=' + id;
   });
 })();

@@ -1,0 +1,7 @@
+{
+  "name": "tara-handmade",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build.mjs"
+  }
+}
